@@ -1,5 +1,11 @@
-﻿<h1 style="@ElementStyle; @H1Border">--Grand Child Component Text - @Counter</h1>
+﻿<h1 style="@ElementStyle; @H1Border">--Grand Child Component Text - @Counter --@ChildContent</h1>
+<h2> Controls - @Controls</h2>
+@*@foreach (var item in collection)
+{
+    to render templete 
+    @Row(item)
 
+}*@
 @code {
     [CascadingParameter(Name = "ColorStyle")]
     public string ElementStyle { get; set; }
@@ -9,4 +15,13 @@
 
     [CascadingParameter(Name = "Counter")]
     public int Counter { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment Controls { get; set; }
+    //RenderFragment has generic type for item to use templates
+    //by using @typeparam TItem
+    //public RenderFragment<TItem> Row { get; set; }
+    //public List<TItem> Items{ get; set; }
 }

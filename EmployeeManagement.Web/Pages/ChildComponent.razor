@@ -1,6 +1,22 @@
 ﻿<h1 style="@ElementStyle; @H1Border">-Child Component Text - @Counter</h1>
 
-<GrandChildComponent></GrandChildComponent>
+<GrandChildComponent>
+    <ChildContent>
+        Text to render inside the the child component by RenderFregmant
+    </ChildContent>
+    <Controls>
+        Here are controls fregmant
+    </Controls>
+    @*
+        render templete
+        <RepeaterComponent Items="ListName">
+            <Row Context="ClassName">
+                templete ClassName.Firstname etc ...
+            </Row>
+        </RepeaterComponent>
+
+    *@
+</GrandChildComponent>
 
 @code {
     [CascadingParameter(Name = "ColorStyle")]
